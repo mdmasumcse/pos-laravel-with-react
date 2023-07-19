@@ -1,0 +1,72 @@
+body {
+    font-family: 'Roboto';
+    overflow-x: hidden;
+}
+
+.bg-theme {
+    background-color: $theme-color-light;
+}
+
+.bg-theme-basic {
+    background-color: $theme-color;
+}
+.text-theme-light{
+    color: $theme-color-light;
+}
+
+.nav-link {
+    color: white;
+
+    &:hover {
+        color: silver;
+    }
+    &:focus{
+        color: silver;
+    }
+}
+.sb-sidenav-menu-heading{
+    color: $theme-color-light;
+}
+
+.text-silver{
+    color: silver;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+address,
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+.modal-header {
+    padding: .25rm 1rem;
+    background-color: $theme-color-light;
+    color: white;
+}
+
+.text-justify {
+    text-align: justify;
+}
+
+.zoom-able {
+    transition: all .3s ease-in-out;
+
+    &:hover {
+        transform: scale(1.05);
+    }
+}
+
+.aspect-two {
+    aspect-ratio: 1/1.25 !important;
+}
