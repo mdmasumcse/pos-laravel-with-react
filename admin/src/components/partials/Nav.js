@@ -1,8 +1,9 @@
 import React from 'react';
-import $ from 'jquery'
-import logo from './../../assets/img/azon-logo.png'
+import $ from 'jquery';
+import logo from './../../assets/img/azon-logo.png';
 import Swal from "sweetalert2";
 import axios from 'axios';
+import Constants from '../../Constants';
 
 const Nav = () => {
 
@@ -18,7 +19,8 @@ const Nav = () => {
             confirmButtonText: 'Yes, Logout!'
           }).then((result) => {
             if (result.isConfirmed) {
-                axios.post('http://localhost:8000/api/logout')
+                
+                axios.post(`${Constants.BASE_URL}/logout`)
                 .then((res) => {
                     localStorage.removeItem('email')
                     localStorage.removeItem('name')

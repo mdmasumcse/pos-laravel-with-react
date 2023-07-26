@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useState } from 'react';
+import Constants from '../../../Constants';
 
 const Login = () => {
 
@@ -7,9 +8,9 @@ const Login = () => {
     const [errors, setErrors] = useState({})
 
     const handleInput = (e) => setInput(prevState => ({ ...prevState, [e.target.name]: e.target.value }))
-    
+
     const handleLogin = () => {
-        axios.post('http://localhost:8000/api/login', input)
+        axios.post(`${Constants.BASE_URL}/login`, input)
             .then((res) => {
                 localStorage.email = res.data.email
                 localStorage.name = res.data.name
@@ -19,7 +20,7 @@ const Login = () => {
                 window.location.reload()
             })
             .catch((errors) => {
-                if(errors.response.status == 422){
+                if (errors.response.status === 422) {
                     setErrors(errors.response.data.errors)
                 }
             });
@@ -43,7 +44,7 @@ const Login = () => {
                                     value={input.email}
                                     onChange={handleInput}
                                 />
-                                <p className={'text-danger p-2'}><small>{errors.email !== undefined? errors.email[0] : null}</small></p>
+                                <p className={'text-danger p-2'}><small>{errors.email !== undefined ? errors.email[0] : null}</small></p>
                             </label>
                             <label className={'w-100 mt-4'}>
                                 <p>Password</p>
@@ -54,7 +55,7 @@ const Login = () => {
                                     value={input.password}
                                     onChange={handleInput}
                                 />
-                                <p className={'text-danger p-2'}><small>{errors.password !== undefined? errors.password[0] : null}</small></p>
+                                <p className={'text-danger p-2'}><small>{errors.password !== undefined ? errors.password[0] : null}</small></p>
                             </label>
                             <div className='d-grid mt-4'>
                                 <button onClick={handleLogin} className='btn btn-outline-warning'>Login</button>
